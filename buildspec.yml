@@ -1,0 +1,28 @@
+---
+version: 0.2
+
+env:
+  variables:
+    KEY: "value"
+
+phases:
+  install:
+    commands:
+      - aws --version
+  pre_build:
+    commands:
+      - echo ${RELEASE_BUCKET_NAME}
+      - echo ${ARTIFACT_NAME}
+      - echo ${ARTIFACT_FILENAME}
+  build:
+    commands:
+      - make doc
+  post_build:
+    commands:
+      - echo Post build command. Doint nothing.
+      - aws s3 cp build/* s3://$S3_BUCKET/
+
+artifacts:
+  files:
+    hello
+
