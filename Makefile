@@ -42,8 +42,8 @@ PYTHON_VERSION := $(shell python --version 2>&1 | cut -d ' ' -f 2 | cut -d '.' -
 PYTHONPATH ?= .venv/lib/python${PYTHON_VERSION}/site-packages:/usr/lib64/python${PYTHON_VERSION}/site-packages
 
 
-.PHONY: doc .venv
-doc: 
+.PHONY: doc 
+doc:  .venv
 	@echo "${GREEN}Building the documentation...${RESET}";
 	${SPHINX_CMD} -W -b html source build || exit 1 ;
 
@@ -67,4 +67,5 @@ requirements.txt:
 
 
 .PHONY: cleanall
+cleanall:
 	rm -rf .venv
