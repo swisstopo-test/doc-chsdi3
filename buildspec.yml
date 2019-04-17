@@ -22,7 +22,4 @@ phases:
       - echo Post build command. Doint nothing.
       - aws s3 cp --recursive  --acl public-read  build/   s3://terraform-doc-chsdi3/
 
-artifacts:
-  files:
-    hello
 
