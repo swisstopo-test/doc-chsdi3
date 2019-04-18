@@ -21,7 +21,7 @@
 
 --------------------
 
-hello from AWS CodePipeline!
+Hello from AWS CodePipeline!
 ============================
 
 .. meta::
