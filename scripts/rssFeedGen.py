@@ -72,14 +72,14 @@ if __name__ == '__main__':
     api_url = os.environ.get('API_URL', 'https://api3.geo.admin.ch')
     if not api_url.endswith('/'):
         api_url += '/'
-    print "RSS feed url: {}".format(api_url)
+    print("RSS feed url: {}".format(api_url))
     
     items = []
     pathToReleaseNotes = 'build/releasenotes/index.html'
     try:
         releases = extract_releases(pathToReleaseNotes)
     except IOError as e:
-        print '%s does nor exist' % pathToReleaseNotes
+        print('{} does nor exist'.format(pathToReleaseNotes))
         raise IOError(e)
 
     i = 0
