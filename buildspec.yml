@@ -9,6 +9,7 @@ phases:
   install:
     commands:
       - aws --version
+      - python --version
   pre_build:
     commands:
       - echo "Some variables"
