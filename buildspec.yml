@@ -11,15 +11,15 @@ phases:
       - aws --version
   pre_build:
     commands:
-      - echo ${RELEASE_BUCKET_NAME}
-      - echo ${ARTIFACT_NAME}
-      - echo ${ARTIFACT_FILENAME}
+      - echo "Some variables"
+      - echo ${WEBSITE_BUCKET_NAME}
+      - echo ${CODEBUILD_SOURCE_VERSION}
   build:
     commands:
       - make doc
   post_build:
     commands:
       - echo Post build command. Doint nothing.
-      - aws s3 cp --recursive  --acl public-read  build/   s3://terraform-doc-chsdi3/
+      - aws s3 cp --recursive  --acl public-read  build/   s3://${WEBSITE_BUCKET_NAME}/
 
 
