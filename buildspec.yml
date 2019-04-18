@@ -16,7 +16,7 @@ phases:
       - echo ${CODEBUILD_SOURCE_VERSION}
   build:
     commands:
-      - make doc
+      - make doc rss
   post_build:
     commands:
       - echo Post build command. Doint nothing.
