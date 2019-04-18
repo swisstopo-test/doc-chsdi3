@@ -55,7 +55,7 @@ requirements.txt:
 	then \
 		virtualenv $(INSTALL_DIRECTORY); \
 		${PIP_CMD} install --upgrade pip==9.0.1 setuptools --index-url ${PYPI_URL} ; \
-		${PIP_CMD} install --index-url ${PYPI_URL} -r requirements.txt ; \
+		${PIP_CMD} install --find-links=local_eggs/ --index-url ${PYPI_URL} -r requirements.txt ; \
 	fi
 
 .PHONY:
