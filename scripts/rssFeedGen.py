@@ -1,3 +1,4 @@
+import os
 from bs4 import BeautifulSoup
 from datetime import datetime
 import time
@@ -66,11 +67,9 @@ def data_to_description(data):
     return description
 
 if __name__ == '__main__':
-    if len(sys.argv) <2:
-        print "Error. You must set API_URL"
-        sys.exit(2)
-
-    api_url = sys.argv[1] + '/'
+    api_url = os.environ.get('API_URL', 'https://api3.geo.admin.ch')
+    if not api_url.endswith('/'):
+        api_url += '/'
     print "RSS feed url: {}".format(api_url)
     
     items = []
