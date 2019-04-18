@@ -47,12 +47,6 @@ doc:  .venv
 	@echo "${GREEN}Building the documentation...${RESET}";
 	${SPHINX_CMD} -W -b html source build || exit 1 ;
 
-.PHONY:
-rss: doc chsdi/static/doc/build/releasenotes/index.html
-	@echo "${GREEN}Creating the rss feed from releasenotes${RESET}";
-	${PYTHON_CMD} scripts/rssFeedGen.py "https://api3.geo.admin.ch"
-
-
 requirements.txt:
 	@echo "${GREEN}File requirements.txt has changed${RESET}";
 .venv: requirements.txt
@@ -64,6 +58,10 @@ requirements.txt:
 		${PIP_CMD} install --index-url ${PYPI_URL} -r requirements.txt ; \
 	fi
 
+.PHONY:
+rss: doc 
+	@echo "${GREEN}Creating the rss feed from releasenotes${RESET}";
+	${PYTHON_CMD} scripts/rssFeedGen.py "https://api3.geo.admin.ch"
 
 
 .PHONY: cleanall

@@ -1,2 +1,6 @@
+beautifulsoup4==4.6.3
+lxml==4.2.5
+PyRSS2Gen==1.1
+pytz==2018.7
 Sphinx==1.2.3
 sphinx-rtd-theme
