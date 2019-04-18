@@ -21,8 +21,8 @@
 
 --------------------
 
-Welcome to GeoAdmin API's documentation!
-========================================
+hello from AWS CodePipeline!
+============================
 
 .. meta::
    :google-site-verification: b6J0Gs_QtsxWzW6PY5Uie1UkQC5SYA40k1kP6fcgFJ4
