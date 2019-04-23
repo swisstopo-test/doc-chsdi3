@@ -14,7 +14,7 @@ PYPI_URL ?= https://pypi.org/simple/
 
 # Commands
 PIP_CMD := $(INSTALL_DIRECTORY)/bin/pip
-PYTHON_CMD := $(INSTALL_DIRECTORY)/bin/python
+PYTHON_CMD := $(INSTALL_DIRECTORY)/bin/python3
 SPHINX_CMD := $(INSTALL_DIRECTORY)/bin/sphinx-build
 
 # Linting rules
@@ -53,7 +53,7 @@ requirements.txt:
 	@echo "${GREEN}Setting up virtual environement...${RESET}";
 	@if [ ! -d $(INSTALL_DIRECTORY) ]; \
 	then \
-		virtualenv $(INSTALL_DIRECTORY); \
+		python3 -m venv $(INSTALL_DIRECTORY); \
 		${PIP_CMD} install --upgrade pip==9.0.1 setuptools --index-url ${PYPI_URL} ; \
 		${PIP_CMD} install --find-links=local_eggs/ --index-url ${PYPI_URL} -r requirements.txt ; \
 	fi

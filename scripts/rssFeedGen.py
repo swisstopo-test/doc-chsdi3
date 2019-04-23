@@ -64,8 +64,8 @@ def extract_data(r):
 
 
 def data_to_description(data):
-    data = data.decode('utf-8', 'ignore')
-    description = data.encode('ascii', 'ignore')
+    # data = data.decode('utf-8', 'ignore')
+    description = data #.encode('ascii', 'ignore')
     return description
 
 if __name__ == '__main__':
@@ -111,6 +111,8 @@ if __name__ == '__main__':
 
     # Make the feed validate (https://validator.w3.org/feed/check.cgi?)
     rss = rss.to_xml('utf-8')
+    rss = bytes(rss, 'utf-8')
+
     root = etree.fromstring(rss)
     new_root = Element('rss', nsmap={'atom':XMLNamespaces.atom})
     new_root.attrib['version'] = '2.0'
@@ -126,4 +128,4 @@ if __name__ == '__main__':
     new_root.append(channel)
 
     with open('build/releasenotes/rss2.xml', 'w') as xml:
-        xml.write(etree.tostring(new_root, pretty_print=True))
+        xml.write(etree.tostring(new_root, pretty_print=True).decode('latin1'))
